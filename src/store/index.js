@@ -1,37 +1,55 @@
 import { createStore } from 'vuex'
+import { faqCategories } from '@/utils/db.json'
 
 export default createStore({
   state: {
-    // cria um estado
-    todos: []
+    faq: [],
+    currentView: 'Home',
+    currentFaq: {
+      categories: 0,
+      answer: 0
+    }
   },
   mutations: {
-    // cria a mutação para alterar o valor do estado
-    SET_TODOS(state, todos) {
-      state.todos = todos
+    SET_FAQ(state, faqCategories) {
+      state.faq = faqCategories
+    },
+    UPDATE_CURRENT_VIEW(state, current) {
+      state.currentView = current
+    },
+    UPDATE_CURRENT_CATEGORIES(state, categories) {
+      state.currentFaq.categories = categories
+    },
+    UPDATE_CURRENT_ANSWER(state, answer) {
+      state.currentFaq.answer = answer
     }
   },
   actions: {
-    // cria uma ação que pelo commit envia o valor para o mutation
-    fetchTodos(context) {
-      const todos = [
-        { id: 1, text: 'Estudar HTML & CSS', done: true },
-        { id: 2, text: 'Conceitos Vuex', done: true },
-        { id: 3, text: 'Atomic Design', done: false },
-        { id: 4, text: 'Começar com Nuxt', done: false },
-        { id: 5, text: 'Back-end com Adonis', done: false }
-      ]
-
-      context.commit('SET_TODOS', todos)
+    fetchFaq(context) {
+      context.commit('SET_FAQ', faqCategories)
+    },
+    updateCurrentView(context, current) {
+      context.commit('UPDATE_CURRENT_VIEW', current)
+    },
+    updateCategories(context, categories) {
+      context.commit('UPDATE_CURRENT_CATEGORIES', categories)
+    },
+    updateAnswer(context, answer) {
+      context.commit('UPDATE_CURRENT_ANSWER', answer)
     }
   },
   getters: {
-    // captura o dado tratado ou não
-    $allTodos(state) {
-      return state.todos
+    $allFaq(state) {
+      return state.faq
     },
-    $doneTodos(state) {
-      return state.todos.filter((todo) => todo.done)
+    $currentViewComponent(state) {
+      return state.currentView
+    },
+    $currentCategories(state) {
+      return state.currentFaq.categories
+    },
+    $currentAnswer(state) {
+      return state.currentFaq.answer
     }
   }
 })
