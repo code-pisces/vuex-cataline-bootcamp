@@ -1,24 +1,36 @@
-# vuex
+<h1 align="center">Treinando Vuex</h1>
 
-## Project setup
+![Home](.github/nav-01.png)
+
+<p align="center">Um simples porém bem elaborado menu de navegação paginado, 
+construído com Vue, estilizado em Grid e gerenciamento de estado com Vuex. Este projeto faz parte do bootcamp da Cataline.</p>
+
+![FAQ](.github/nav-02.png)
+![About](.github/nav-03.png)
+
+
+## Como rodar o app:
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Em modo de desenvolvimento
+
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Em modo de produção
+
 ```
 yarn build
 ```
 
 ### Lints and fixes files
+
 ```
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<p align="center">Desenvolvido por Gustavo Amorim</p>
